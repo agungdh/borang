@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-use Dompdf\Dompdf;
-
-use View;
-
 class WelcomeController extends Controller
 {
 	function index(Request $request) {
