@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
+Route::post('login', 'WelcomeController@login');
+Route::get('logout', 'WelcomeController@logout');
+
+// //create hash password
+// Route::get('hash/{string}', function($string) {
+// 	echo Hash::make($string);
+// });
