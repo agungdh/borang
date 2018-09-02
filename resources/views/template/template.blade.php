@@ -43,7 +43,7 @@
 
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{ asset($userimage) . '?time=' . $now }}" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">{{ session('nama') }}</p>
+          <p class="app-sidebar__user-name">{{ session('nama_user') }}</p>
           <p class="app-sidebar__user-designation">{{ session('username') }}</p>
         </div>
       </div>
