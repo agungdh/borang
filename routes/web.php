@@ -32,3 +32,40 @@ Route::delete('prodi/{id_fakultas}', 'ProdiController@destroy');
 Route::get('hash/{string}', function($string) {
 	echo Hash::make($string);
 });
+
+Route::get('testprepare', function() {
+	$i = 0;
+	
+	$butir = DB::table('v_butir')
+			->get();
+
+	foreach ($butir as $item) {
+		$data[$i]['id_borang_akreditasi'] = 1;
+		$data[$i]['id_butir'] = $item->id_butir;
+
+		$i++;
+	}
+
+	$substandar = DB::table('v_substandar')
+			->get();
+
+	foreach ($substandar as $item) {
+		$data[$i]['id_borang_akreditasi'] = 1;
+		$data[$i]['id_substandar'] = $item->id_substandar;
+
+		$i++;
+	}
+
+	$standar = DB::table('v_standar')
+			->get();
+
+	foreach ($standar as $item) {
+		$data[$i]['id_borang_akreditasi'] = 1;
+		$data[$i]['id_standar'] = $item->id_standar;
+
+		$i++;
+	}
+
+	DB::table('borang')
+		->insert($data);
+});
