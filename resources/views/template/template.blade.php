@@ -1,7 +1,3 @@
-@php
-$config = DB::table('config')->first();
-@endphp
-
 @php ($now = date('YmdHis'))
 <!DOCTYPE html>
 <html lang="en">
@@ -16,20 +12,13 @@ $config = DB::table('config')->first();
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/daterangepicker.css') }}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>{{ $config->judul_aplikasi }}</title>
+    <title>Ini Judul</title>
 
-    <!-- Favicon -->
-    @if (file_exists('uploads/favicon'))
-      @php ($favicon = 'uploads/favicon')
-    @else
-      @php ($favicon = 'assets/favicon.png')
-    @endif
-
-    <link rel="shortcut icon" href="{{ asset($favicon) }}?time={{ $now }}"/>
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}?time={{ $now }}"/>
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="{{ url('/') }}">{{ $config->judul_menu }}</a>
+    <header class="app-header"><a class="app-header__logo" href="{{ url('/') }}">Judul Menu</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -45,12 +34,7 @@ $config = DB::table('config')->first();
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <!-- User Image -->
-      @if (file_exists('uploads/favicon' . session('id')))
-        @php ($favicon = 'uploads/favicon')
-      @else
-        @php ($favicon = 'assets/favicon.png')
-      @endif
+
       @if (file_exists('uploads/userimage/' . session('id')))
         @php ($userimage = 'uploads/userimage/' . session('id'))
       @else

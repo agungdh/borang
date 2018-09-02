@@ -14,14 +14,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Ini Judul</title>
 
-    <!-- Favicon -->
-    @if (file_exists('uploads/favicon'))
-      @php ($favicon = 'uploads/favicon')
-    @else
-      @php ($favicon = 'assets/favicon.png')
-    @endif
-
-    <link rel="shortcut icon" href="{{ asset($favicon) }}?time={{ $now }}"/>
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}?time={{ $now }}"/>
   </head>
   <body>
     <section class="material-half-bg">
