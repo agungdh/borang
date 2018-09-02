@@ -19,6 +19,8 @@ Route::get('profil', 'ProfilController@index');
 Route::put('profil/ubah', 'ProfilController@ubah');
 Route::put('profil/gantipassword', 'ProfilController@gantiPassword');
 
+Route::resource('fakultas', 'FakultasController');
+
 //create hash password
 Route::get('hash/{string}', function($string) {
 	echo Hash::make($string);
