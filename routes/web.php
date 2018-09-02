@@ -21,6 +21,13 @@ Route::put('profil/gantipassword', 'ProfilController@gantiPassword');
 
 Route::resource('fakultas', 'FakultasController');
 
+Route::get('fakultas/{id_fakultas}/prodi', 'ProdiController@index');
+Route::get('prodi/{id_fakultas}/create', 'ProdiController@create');
+Route::post('prodi/{id_fakultas}', 'ProdiController@store');
+Route::get('prodi/{id_fakultas}/edit', 'ProdiController@edit');
+Route::put('prodi/{id_fakultas}', 'ProdiController@update');
+Route::delete('prodi/{id_fakultas}', 'ProdiController@destroy');
+
 //create hash password
 Route::get('hash/{string}', function($string) {
 	echo Hash::make($string);

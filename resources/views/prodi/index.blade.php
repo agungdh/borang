@@ -1,7 +1,7 @@
 @extends('template.template')
 
 @section('nav')
-  @include('fakultas.nav')
+  @include('prodi.nav')
 @endsection
 
 @section('content')
@@ -10,28 +10,27 @@
       <div class="tile">
         <div class="tile-body">
           <div class="tile-title-w-btn">
-            <h3 class="title">Data Fakultas</h3>
-            <p><a class="btn btn-primary icon-btn" href="{{ action('FakultasController@create') }}"><i class="fa fa-plus"></i>Fakultas</a></p>
+            <h3 class="title">Data Prodi</h3>
+            <p><a class="btn btn-primary icon-btn" href="{{ action('ProdiController@create', $fakultas->id_fakultas) }}"><i class="fa fa-plus"></i>Prodi</a></p>
           </div>
           <table class="table table-hover table-bordered datatable">
             <thead>
               <tr>
-                <th>Nama Fakultas</th>
+                <th>Nama Prodi</th>
                 <th>Proses</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($tabel as $item)
                 <tr>
-                  <td>{{ $item->nama_fakultas }}</td>
+                  <td>{{ $item->nama_prodi }}</td>
                   <td>
                     <div class="btn-group">
-                      <a class="btn btn-primary" href="{{ action('ProdiController@index', $item->id_fakultas) }}" data-toggle="tooltip" title="Prodi"><i class="fa fa-share"></i></a>
-                      <a class="btn btn-primary" href="{{ action('FakultasController@edit', $item->id_fakultas) }}" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
-                      <form method="post" id="form_hapus_{{ $item->id_fakultas }}" action="{{ action('FakultasController@destroy', $item->id_fakultas) }}">
+                      <a class="btn btn-primary" href="{{ action('ProdiController@edit', $item->id_prodi) }}" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
+                      <form method="post" id="form_hapus_{{ $item->id_prodi }}" action="{{ action('ProdiController@destroy', $item->id_prodi) }}">
                         @method('delete')
                         @csrf
-                      <a class="btn btn-primary" href="#" onclick="hapus('{{ $item->id_fakultas }}')" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
+                      <a class="btn btn-primary" href="#" onclick="hapus('{{ $item->id_prodi }}')" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
                       </form>
                     </div>
                   </td>
